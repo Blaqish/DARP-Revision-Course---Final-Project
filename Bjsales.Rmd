@@ -1,0 +1,57 @@
+---
+title: "BjSales"
+author: "Danladi N.P"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include = FALSE, echo = FALSE, eval = TRUE}
+
+
+# ############INSTALLING AND LOADING PACKAGES -----------------------------
+pacman::p_load(rio, #Data import and export
+               tidyverse, #data management and visualization
+               gtsummary, #interactive table
+               rstatix, #Statistic
+               skimr, #data exploration
+               epikit, #age categorization
+               janitor #data cleaning
+               )
+```
+
+##About data:The sales time series BJsales and leading indicator BJsales.
+          lead each contain 150 observations. The objects are of class "ts".
+
+```{r Bjsales, echo=FALSE}
+# ############DATA IMPORTATION --------------------------------------------
+
+BJsales
+
+
+
+# ############DATA EXPLORATION --------------------------------------------
+
+view(BJsales.lead)
+
+
+# ##########DESCRIPTIVE STATISTICS ----------------------------------------
+
+summary(BJsales) #Checking for the Centrality of our data
+sd(BJsales)
+
+
+
+
+```
+
+## Data Visualization
+
+Ploting a graph of "Values" against "Time"
+
+```{r pressure, echo=FALSE}
+# ######DATA VISUALIZATION ------------------------------------------------
+
+plot(BJsales, main = "Time Series of Sales", ylab = "Values", xlab = "Time") #A time series data
+```
+
+
